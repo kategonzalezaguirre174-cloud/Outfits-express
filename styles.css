@@ -1,0 +1,219 @@
+/* Fuentes (si no agregaste el <link> en head, puedes usar @import) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root{
+  /* Paleta por defecto: perla + dorado suave */
+  --bg: #f7f6f4;              /* perla claro */
+  --surface: #ffffff;         /* tarjetas / bg blanco */
+  --accent: #bfa06a;          /* dorado suave */
+  --accent-2: #d9cfa6;        /* dorado pálido (degradado) */
+  --muted: #7a7470;           /* texto secundario */
+  --text: #222222;            /* texto principal */
+  --glass: rgba(255,255,255,0.65);
+  --shadow: 0 6px 18px rgba(34,34,34,0.08);
+  --radius: 14px;
+  --card-radius: 12px;
+  --transition: 0.28s cubic-bezier(.2,.9,.3,1);
+}
+
+/* --- Alternativa: tema pastel (cambia body class a .theme-pastel) --- */
+.theme-pastel {
+  --bg: #fff9fb;
+  --surface: #ffffff;
+  --accent: #a2c7e5;    /* azul pastel */
+  --accent-2: #ffd6e0;  /* rosa pastel */
+  --muted: #6b6b6b;
+  --text: #1f2a3a;
+}
+
+/* Reset / base */
+* { box-sizing: border-box; }
+html,body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height: 1.5;
+}
+
+/* Wrapper — da un padding suave a la página y centrado contenido */
+.container {
+  max-width: 1140px;
+}
+
+/* ===== BANNER ===== */
+#banner {
+  background: linear-gradient(90deg, rgba(191,160,106,0.9) 0%, rgba(217,207,166,0.85) 100%);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  box-shadow: var(--shadow);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: transparent !important;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1rem 0;
+}
+.navbar-brand img { border-radius: 10px; object-fit: cover; }
+.navbar .nav-link {
+  color: var(--muted) !important;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+.navbar .nav-link:hover, .navbar .nav-link.active {
+  color: var(--text) !important;
+}
+.navbar-toggler {
+  border: 1px solid rgba(34,34,34,0.06);
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+}
+
+/* ===== CAROUSEL ===== */
+.carousel-inner { border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); }
+.carousel-caption {
+  background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.04));
+  padding: 1rem;
+  border-radius: 10px;
+}
+.carousel-caption h5 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.carousel-caption p { color: #fafafa; margin-bottom: 0.6rem; }
+
+/* Botones en carrusel */
+.carousel .btn-primary, .carousel .btn-light {
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* ===== SECCIONES ===== */
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text);
+  letter-spacing: 0.2px;
+}
+h2 { margin-top: 0.6rem; margin-bottom: 1rem; }
+
+/* ===== TARJETAS ===== */
+.card {
+  border: none;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(34,34,34,0.12);
+}
+.card .card-title { font-weight: 600; }
+.card-img-top { border-top-left-radius: var(--card-radius); border-top-right-radius: var(--card-radius); }
+
+/* ===== BOTONES ===== */
+.btn-primary, .btn-success, .btn-danger {
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  font-weight: 600;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 6px 18px rgba(31, 31, 31, 0.06);
+}
+.btn-primary {
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border: none;
+  color: #fff;
+}
+.btn-primary:hover { transform: translateY(-3px); opacity: 0.98; box-shadow: 0 18px 40px rgba(191,160,106,0.12); }
+.btn-light { border-radius: 10px; }
+
+/* Botones pequeños redondeados */
+.btn-ranger { border-radius: 999px; padding: .35rem .6rem; font-size: .85rem; }
+
+/* ===== ALERTAS ===== */
+.alert {
+  border-radius: 12px;
+  box-shadow: none;
+  border: 1px solid rgba(34,34,34,0.03);
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8));
+  color: var(--muted);
+}
+
+/* ===== TESTIMONIOS ===== */
+.testimonio-vip {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.9));
+  border-radius: 12px;
+  padding: 1rem;
+}
+.testimonio-vip h5 { font-family: 'Playfair Display', serif; }
+
+/* ===== TABS ===== */
+.nav-tabs .nav-link { border: none; border-radius: 10px; padding: .6rem 1rem; }
+.nav-tabs .nav-link.active { background: linear-gradient(90deg,var(--accent),var(--accent-2)); color: white; }
+
+/* ===== FORMULARIOS ===== */
+form {
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+.form-control, .form-select, .form-check-input {
+  border-radius: 10px;
+  border: 1px solid rgba(34,34,34,0.06);
+  padding: .7rem .8rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(250,250,250,0.95));
+  box-shadow: none;
+}
+.form-control:focus, .form-select:focus {
+  outline: none;
+  box-shadow: 0 8px 18px rgba(191,160,106,0.12);
+  transform: translateY(-2px);
+}
+
+/* Radio / checkbox tweaks */
+.form-check-input { width: 1.1rem; height: 1.1rem; }
+
+/* ===== MODAL / OFFCANVAS ===== */
+.modal-content, .offcanvas {
+  border-radius: 12px;
+  box-shadow: 0 30px 80px rgba(31,31,31,0.12);
+}
+.modal-title { font-family: 'Playfair Display', serif; }
+
+/* ===== SERVICIOS IA CARD (botones dentro) ===== */
+#card1 .detalle { color: var(--muted); font-size: .95rem; margin-bottom: .8rem; }
+
+/* ===== FOOTER ===== */
+footer {
+  border-top: 1px solid rgba(34,34,34,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(250,250,250,0.95));
+  color: var(--muted);
+  padding: 1.25rem 0;
+  font-size: .95rem;
+}
+
+/* ===== RESPONSIVE tweaks ===== */
+@media (max-width: 768px) {
+  .carousel-caption { display: none; } /* evita que el texto tape la imagen en pantallas pequeñas */
+  .navbar-brand img { height: 56px; }
+  #banner { padding: 1rem .6rem; font-size: .95rem; }
+}
+
+/* Pequeño helper para sombras elegantes en secciones destacadas */
+.section-highlight {
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.85));
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: var(--shadow);
+}
+
+/* Utilidad: cambiar a tema pastel en body: <body class="theme-pastel"> */
